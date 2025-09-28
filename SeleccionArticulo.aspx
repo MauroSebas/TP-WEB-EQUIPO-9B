@@ -13,7 +13,7 @@
                     <div class="col">
                         <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden hover-scale">
                             <div class="card-img-top d-flex align-items-center justify-content-center" style="height: 250px;">
-                                <img src='<%# Eval("PrimeraImagenUrl") %>' class="img-fluid" alt='<%# Eval("nombre") %>' style="object-fit: contain; max-height: 100%; max-width: 100%;">
+                                <%--<img src='<%# Eval("PrimeraImagenUrl") %>' class="img-fluid" alt='<%# Eval("nombre") %>' style="object-fit: contain; max-height: 100%; max-width: 100%;">--%>
                             </div>
                             <div class="card-body d-flex flex-column align-items-center text-center">
                                 <h5 class="card-title"><%# Eval("nombre") %></h5>
