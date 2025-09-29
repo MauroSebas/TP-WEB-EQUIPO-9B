@@ -11,20 +11,40 @@ namespace TPWebForms_equipo9B
 {
     public partial class SeleccionArticulo : System.Web.UI.Page
     {
+        public List<Articulo> ListaArticulo { get; set; }
+        public List<Imagen> ListaImagen { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 ArticuloNegocio negocio = new ArticuloNegocio();
-                List<Articulo> lista = negocio.lista();
-                rptArticulos.DataSource = lista;
-                rptArticulos.DataBind();
+                ListaArticulo = negocio.lista();
+                ImagenNegocio negocioImagen = new ImagenNegocio();
+
+
+                foreach (Articulo articulo in ListaArticulo)
+                {
+
+                    ListaImagen = negocioImagen.listarImagenes(articulo.id);
+
+                    if ( ListaImagen != null)
+                    {
+
+                        articulo.Imagenes = ListaImagen;
+
+                    }
+
+
+
+                }
             }
         }
 
         protected void SeleccionarArticulo(object sender, CommandEventArgs e)
         {
-            
+
         }
+
     }
 }
