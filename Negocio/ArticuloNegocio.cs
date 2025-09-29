@@ -11,17 +11,17 @@ namespace Negocio
 {
     public class ArticuloNegocio
     {
-        
+
         public List<Articulo> lista()
         {
             AccesoDato datos = new AccesoDato();
             List<Articulo> lista = new List<Articulo>();
+            ImagenNegocio imgNegocio = new ImagenNegocio();
+
             try
             {
-
                 datos.setearConsulta("select a.Id as articuloId, Codigo, Nombre, a.Descripcion as articuloDescripcion, Precio, m.Descripcion as marcaDescripcion, c.Descripcion as categoriaDescripcion,a.IdMarca,a.IdCategoria From ARTICULOS a, MARCAS m, CATEGORIAS c where a.IdMarca = m.id and a.IdCategoria = c.id");
                 datos.ejecutarLectura();
-
 
                 while (datos.Lector.Read())
                 {
@@ -37,6 +37,8 @@ namespace Negocio
                     auxiliar.categoria = new Categoria();
                     auxiliar.categoria.descripcion = (string)datos.Lector["categoriaDescripcion"];
                     auxiliar.categoria.id = (int)datos.Lector["IdCategoria"];
+                    auxiliar.Imagenes = imgNegocio.listarImagenes(auxiliar.id);
+
                     lista.Add(auxiliar);
                 }
                 return lista;
@@ -50,6 +52,7 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
 
 
         public List<Articulo> filtrar(string campo, string criterio, string filtro)

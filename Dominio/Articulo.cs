@@ -35,7 +35,15 @@ namespace Dominio
                 return precio.ToString("C", new CultureInfo("es-AR"));
             }
         }
-
+        public string PrimeraImagenUrl
+        {
+            get
+            {
+                return Imagenes != null && Imagenes.Count > 0
+                    ? Imagenes[0].imageUrl
+                    : "img/default.png";
+            }
+        }
 
 
 

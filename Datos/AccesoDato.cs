@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Negocio
 {
-    public  class AccesoDato
+    public class AccesoDato
     {
         private SqlConnection conexion;
         private SqlCommand comando;
@@ -79,7 +79,7 @@ namespace Negocio
             try
             {
                 conexion.Open();
-                return comando.ExecuteScalar(); 
+                return comando.ExecuteScalar();
             }
             catch (Exception ex)
             {
