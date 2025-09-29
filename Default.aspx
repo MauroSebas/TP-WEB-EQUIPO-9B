@@ -50,9 +50,7 @@
                         </div>
 
                     </ContentTemplate>
-                    <Triggers>
-                        <asp:AsyncPostBackTrigger ControlID="btnIntercambiar" EventName="Click" />
-                    </Triggers>
+                    
                 </asp:UpdatePanel>
                 <!-- Separador -->
                 <hr class="hr-stile" id="hrSeparator">
