@@ -79,6 +79,7 @@
     <Content Include="Content\CSS\Vouncher.css" />
     <Content Include="Content\JS\animaciones.js" />
     <Content Include="Default.aspx" />
+    <Content Include="FormClient.aspx" />
     <Content Include="Global.asax" />
     <Content Include="SeleccionArticulo.aspx" />
     <Content Include="Web.config" />
@@ -90,6 +91,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormClient.aspx.cs">
+      <DependentUpon>FormClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormClient.aspx.designer.cs">
+      <DependentUpon>FormClient.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
