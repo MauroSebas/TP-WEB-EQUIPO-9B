@@ -7,51 +7,50 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="mb-3">
-        <label for="inputDni" class="form-label">DNI</label>
-        <input type="number" class="form-control" id="inputDni" placeholder="DNI">
+        <asp:Label ID="lblDni" AssociatedControlID="txtDni" runat="server" CssClass="form-label" Text="DNI"></asp:Label>
+        <asp:TextBox ID="txtDni" runat="server" CssClass="form-control" placeholder="Escribe tu DNI..." TextMode="Number" required="true"></asp:TextBox>
+    </div>
+
+    <div class="row mb-3">
+
+        <div class="col">
+            <asp:Label ID="lblNombre" AssociatedControlID="inputNombre" runat="server" CssClass="form-label" Text="Nombre"></asp:Label>
+            <asp:TextBox ID="inputNombre" runat="server" CssClass="form-control" placeholder="Ingresá tu nombre" required="true"></asp:TextBox>
+        </div>
+
+        <div class="col">
+            <asp:Label ID="lblApellido" AssociatedControlID="inputApellido" runat="server" CssClass="form-label" Text="Apellido"></asp:Label>
+            <asp:TextBox ID="inputApellido" runat="server" CssClass="form-control" placeholder="Ingresá tu apellido" required="true"></asp:TextBox>
+        </div>
+
+        <div class="col">
+            <asp:Label ID="lblEmail" AssociatedControlID="inputEmail" runat="server" CssClass="form-label" Text="E-mail"></asp:Label>
+            <asp:TextBox ID="inputEmail" runat="server" CssClass="form-control" placeholder="E-mail" TextMode="Email" required="true"></asp:TextBox>
+        </div>
+
     </div>
 
     <div class="row mb-3">
         <div class="col">
-            <label for="inputNombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="inputNombre" placeholder="Ingresá tu nombre" required>
+            <asp:Label ID="lblDireccion" AssociatedControlID="inputDireccion" runat="server" CssClass="form-label" Text="Dirección"></asp:Label>
+            <asp:TextBox ID="inputDireccion" CssClass="form-control" placeholder="Apartment, studio, or floor" runat="server"></asp:TextBox>
         </div>
+
         <div class="col">
-            <label for="inputApellido" class="form-label">Apellido</label>
-            <input type="text" class="form-control" id="inputApellido" placeholder="Ingresá tu apellido" required>
+            <asp:Label ID="lblCiudad" AssociatedControlID="inputCiudad" runat="server" CssClass="form-label" Text="Ciudad"></asp:Label>
+            <asp:TextBox ID="inputCiudad" CssClass="form-control" placeholder="Apartamento, estudio, o piso" runat="server"></asp:TextBox>
+        </div>
+
+        <div class="col">
+            <asp:Label ID="lblCp" AssociatedControlID="inputCp" runat="server" CssClass="form-label" Text="Código Postal"></asp:Label>
+            <asp:TextBox ID="inputCp" CssClass="form-control" placeholder="Código Postal" runat="server" TextMode="Number"></asp:TextBox>
         </div>
     </div>
 
-    <div class="row mb-3">
-        <div class="col">
-            <label for="inputEmail" class="form-label">Email</label>
-            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-        </div>
-        <div class="col">
-            <label for="inputPassword" class="form-label">Password</label>
-            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-        </div>
-    </div>
+<div>
+    <asp:CheckBox ID="chkTerminos" runat="server"/>
+    <asp:Label ID="lblTerminos" AssociatedControlID="chkTerminos" runat="server" CssClass="form-check-label" Text="Términos y condiciones"></asp:Label>
+</div>
 
-    <div class="mb-3">
-        <label for="inputDireccion" class="form-label">Dirección</label>
-        <input type="text" class="form-control" id="inputDireccion" placeholder="Apartment, studio, or floor">
-    </div>
-
-    <div class="row mb-3">
-        <div class="col">
-            <label for="inputCiudad" class="form-label">Ciudad</label>
-            <input type="text" class="form-control" id="inputCiudad">
-        </div>
-        <div class="col">
-            <label for="inputState" class="form-label">Provincia</label>
-            <select id="inputState" class="form-select">
-                <option selected>Choose...</option>
-                <option>Buenos Aires</option>
-            </select>
-        </div>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Sign in</button>
-
+    <asp:Button ID="ButtonSubmit" runat="server" CssClass="btn btn-primary mt-3" Text="Participá!" />
 </asp:Content>
