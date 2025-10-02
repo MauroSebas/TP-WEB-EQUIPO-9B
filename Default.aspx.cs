@@ -18,6 +18,7 @@ namespace TPWebForms_equipo9B
 
         protected void btnIntercambiar_Click(object sender, EventArgs e)
         {
+
             string voucherIngresado = txtVoucher.Text.Trim();
 
             if (string.IsNullOrEmpty(voucherIngresado))

@@ -10,9 +10,9 @@ using System.Web.UI.WebControls;
 namespace TPWebForms_equipo9B
 {
     public partial class SeleccionArticulo : System.Web.UI.Page
-    {
-        public List<Articulo> ListaArticulo { get; set; }
+    {       
         public List<Imagen> ListaImagen { get; set; }
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,6 +20,11 @@ namespace TPWebForms_equipo9B
             {
                 ArticuloNegocio negocio = new ArticuloNegocio();
                 ListaArticulo = negocio.lista();
+
+                RepeaterCards.DataSource = ListaArticulo;
+                RepeaterCards.DataBind();
+
+
                 ImagenNegocio negocioImagen = new ImagenNegocio();
 
 
@@ -34,11 +39,18 @@ namespace TPWebForms_equipo9B
                         articulo.Imagenes = ListaImagen;
                     }
                 }
+
             }
         }
 
-        protected void SeleccionarArticulo(object sender, CommandEventArgs e)
+        protected void btnSeleccionArticulo_Click(object sender, EventArgs e)
         {
+
+            string idArticuloSeleccionado = ((Button)sender).CommandArgument;
+
+            Session.Add("articulo", idArticuloSeleccionado);
+            Response.Redirect("Formulario.aspx", false);
+
 
         }
 

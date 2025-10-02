@@ -38,6 +38,8 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+
         public void AgregarImagen(Imagen img)
         {
             AccesoDato datos = new AccesoDato();

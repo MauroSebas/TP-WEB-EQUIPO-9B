@@ -47,6 +47,12 @@
         box-shadow: none !important;
     }
 
+
+/*Filtro para iconos prev y next */
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    filter: invert(108%);
+}
+
 /*Hover para las card */
 .hover-scale:hover {
     transform: translateY(-5px) scale(1.02);
@@ -82,3 +88,4 @@
         box-shadow: 0 0 8px rgba(93,14,192,0.4) !important;
         outline: none !important;
     }
+
