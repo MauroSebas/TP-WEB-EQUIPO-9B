@@ -22,28 +22,16 @@ namespace TPWebForms_equipo9B
                 RepeaterCards.DataSource = ListaArticulo;
                 RepeaterCards.DataBind();
 
-
-                foreach (Articulo articulo in ListaArticulo)
-                {
-
-                    ListaImagen = negocioImagen.listarImagenes(articulo.id);
-
-                    if ( ListaImagen != null)
-                    {
-
-                        articulo.Imagenes = ListaImagen;
-
-                    }
-
-
-
-                }
             }
         }
 
         protected void btnSeleccionArticulo_Click(object sender, EventArgs e)
         {
-            string valor = ((Button)sender).CommandArgument;
+            string idArticuloSeleccionado = ((Button)sender).CommandArgument;
+
+            Session.Add("articulo", idArticuloSeleccionado);
+            Response.Redirect("Formulario.aspx", false);
+
         }
     }
 }

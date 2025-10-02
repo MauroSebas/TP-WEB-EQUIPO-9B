@@ -18,7 +18,7 @@ namespace TPWebForms_equipo9B
 
         protected void btnIntercambiar_Click(object sender, EventArgs e)
         {
-        /*
+
             string voucherIngresado = txtVoucher.Text.Trim();
 
             if (string.IsNullOrEmpty(voucherIngresado))
@@ -28,7 +28,7 @@ namespace TPWebForms_equipo9B
             }
 
             VoucherNegocio negocio = new VoucherNegocio();
-            Voucher voucher = negocio.ValidarVoucher(voucherIngresado);
+            Vouncher voucher = negocio.ValidarVoucher(voucherIngresado);
 
             if (voucher == null)
             {
@@ -53,7 +53,7 @@ namespace TPWebForms_equipo9B
             {
                 Session["Cliente"] = new Cliente();
             }
-        */
+
             Response.Redirect("~/SeleccionArticulo.aspx");
         }
     }

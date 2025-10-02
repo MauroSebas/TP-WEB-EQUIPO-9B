@@ -8,6 +8,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="container my-4">
+        <h1 class="text-center mt-3 mb-4">
+            <span style="color: var(--violeta-principal); font-size: 2.3rem; font-weight: 600; text-transform: none;">
+                Elegí tu Premio
+            </span>
+        </h1>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
             <asp:Repeater ID="RepeaterCards" runat="server">
                 <ItemTemplate>
@@ -20,7 +25,7 @@
                                 <p class="card-text text-wrap mb-3"></p>
                                 <p class="card-text mt-auto fw-bold fs-5"></p>
                                 <asp:Button ID="btnSeleccionArticulo" runat="server" Text="Seleccionar" CssClass="btn input-mi-color mt-2"
-                                   CommandArgument='<%#Eval("Id")%>' CommandName="ArticuloId" OnClick= "btnSeleccionArticulo_Click"/>
+                                     CommandName="ArticuloId" CommandArgument='<%#Eval("Id") %>' Onclick="btnSeleccionArticulo_Click" />
                             </div>
                         </div>
                     </div>

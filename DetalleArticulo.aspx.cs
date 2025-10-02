@@ -12,7 +12,6 @@ namespace TPWebForms_equipo9B
     public partial class DetalleArticulo : System.Web.UI.Page
     {
         public List<Articulo> ListaArticulos { get; set; }
-        public List<Imagen> ListaImagen { get; set; }
 
         public Articulo ArticuloSeleccionado { get; set; }
 
@@ -24,8 +23,6 @@ namespace TPWebForms_equipo9B
                 ArticuloNegocio negocioArticulo = new ArticuloNegocio();
                 ListaArticulos = negocioArticulo.lista();
 
-                Articulo ArticuloSeleccionado;
-
                 int IdUser = int.Parse(Request.QueryString["Id"]);
 
                 foreach (Articulo articulo in ListaArticulos)
@@ -35,31 +32,14 @@ namespace TPWebForms_equipo9B
                         ArticuloSeleccionado = articulo;
                     }
                 }
-
-
-
-
-
-
-
-                ImagenNegocio negocioImagen = new ImagenNegocio();
                 
-                
-                foreach (Articulo articulo in ListaArticulos)
-                {
-
-                    ListaImagen = negocioImagen.listarImagenes(IdUser);
-
-
-
-                    if (ListaImagen != null)
-                    {
-
-                        articulo.Imagenes = ListaImagen;
-
-                    }
-                }
             }
         }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SeleccionArticulo.aspx");
+        }
+
     }
 }
