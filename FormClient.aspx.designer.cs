@@ -42,13 +42,13 @@ namespace TPWebForms_equipo9B
         protected global::System.Web.UI.WebControls.Label lblNombre;
 
         /// <summary>
-        /// Control inputNombre.
+        /// Control txtNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputNombre;
+        protected global::System.Web.UI.WebControls.TextBox txtNombre;
 
         /// <summary>
         /// Control lblApellido.
@@ -60,13 +60,13 @@ namespace TPWebForms_equipo9B
         protected global::System.Web.UI.WebControls.Label lblApellido;
 
         /// <summary>
-        /// Control inputApellido.
+        /// Control txtApellido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputApellido;
+        protected global::System.Web.UI.WebControls.TextBox txtApellido;
 
         /// <summary>
         /// Control lblEmail.
@@ -78,13 +78,13 @@ namespace TPWebForms_equipo9B
         protected global::System.Web.UI.WebControls.Label lblEmail;
 
         /// <summary>
-        /// Control inputEmail.
+        /// Control txtEmail.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
         /// Control lblDireccion.
@@ -96,13 +96,13 @@ namespace TPWebForms_equipo9B
         protected global::System.Web.UI.WebControls.Label lblDireccion;
 
         /// <summary>
-        /// Control inputDireccion.
+        /// Control txtDireccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputDireccion;
+        protected global::System.Web.UI.WebControls.TextBox txtDireccion;
 
         /// <summary>
         /// Control lblCiudad.
@@ -114,13 +114,13 @@ namespace TPWebForms_equipo9B
         protected global::System.Web.UI.WebControls.Label lblCiudad;
 
         /// <summary>
-        /// Control inputCiudad.
+        /// Control txtCiudad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputCiudad;
+        protected global::System.Web.UI.WebControls.TextBox txtCiudad;
 
         /// <summary>
         /// Control lblCp.
@@ -132,13 +132,13 @@ namespace TPWebForms_equipo9B
         protected global::System.Web.UI.WebControls.Label lblCp;
 
         /// <summary>
-        /// Control inputCp.
+        /// Control txtCp.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputCp;
+        protected global::System.Web.UI.WebControls.TextBox txtCp;
 
         /// <summary>
         /// Control chkTerminos.
