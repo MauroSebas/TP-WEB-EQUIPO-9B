@@ -47,7 +47,8 @@
     <Compile Include="Imagen.cs" />
     <Compile Include="Marca.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Voucher.cs" />
+    <Compile Include="Vouncher.cs" />
+
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
