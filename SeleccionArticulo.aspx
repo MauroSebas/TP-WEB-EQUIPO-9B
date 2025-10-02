@@ -9,7 +9,9 @@
 
     <div class="container my-4">
         <h1 class="text-center mt-3 mb-4">
-            
+            <span style="color: var(--violeta-principal); font-size: 2.3rem; font-weight: 600; text-transform: none;">
+                Elegí tu Premio
+            </span>
         </h1>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
             <asp:Repeater ID="RepeaterCards" runat="server">
