@@ -12,7 +12,7 @@ namespace TPWebForms_equipo9B
     public partial class SeleccionArticulo : System.Web.UI.Page
     {       
         public List<Imagen> ListaImagen { get; set; }
-
+        public List<Articulo> ListaArticulo { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
