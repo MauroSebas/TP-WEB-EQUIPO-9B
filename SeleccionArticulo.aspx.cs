@@ -10,9 +10,9 @@ using System.Web.UI.WebControls;
 namespace TPWebForms_equipo9B
 {
     public partial class SeleccionArticulo : System.Web.UI.Page
-    {       
-        public List<Imagen> ListaImagen { get; set; }
+    {
         public List<Articulo> ListaArticulo { get; set; }
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,25 +20,8 @@ namespace TPWebForms_equipo9B
             {
                 ArticuloNegocio negocio = new ArticuloNegocio();
                 ListaArticulo = negocio.lista();
-
                 RepeaterCards.DataSource = ListaArticulo;
                 RepeaterCards.DataBind();
-
-
-                ImagenNegocio negocioImagen = new ImagenNegocio();
-
-
-                foreach (Articulo articulo in ListaArticulo)
-                {
-
-                    ListaImagen = negocioImagen.listarImagenes(articulo.id);
-
-                    if (ListaImagen != null)
-                    {
-
-                        articulo.Imagenes = ListaImagen;
-                    }
-                }
 
             }
         }
