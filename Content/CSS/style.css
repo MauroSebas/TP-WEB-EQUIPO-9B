@@ -19,6 +19,18 @@
     margin-bottom: 0.5rem;
 }
 
+.card-color-borde {
+    border: 1px solid var(--violeta-principal) !important;
+}
+
+
+#li-marca {
+    border-top: 1px solid var(--violeta-principal) !important;
+    border-bottom: 1px solid var(--violeta-principal) !important;
+}
+
+
+
 .linea-violeta {
     border-color: var(--violeta-principal) !important;
     border-width: 2px !important;
@@ -46,6 +58,12 @@
         border-color: var(--violeta-hover) !important;
         box-shadow: none !important;
     }
+
+
+/*Filtro para iconos prev y next */
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    filter: invert(108%);
+}
 
 /*Hover para las card */
 .hover-scale:hover {
@@ -82,3 +100,4 @@
         box-shadow: 0 0 8px rgba(93,14,192,0.4) !important;
         outline: none !important;
     }
+
