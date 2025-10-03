@@ -17,7 +17,7 @@
             <asp:Repeater ID="RepeaterCards" runat="server">
                 <ItemTemplate>
                     <div class="col">
-                        <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden hover-scale">
+                        <div class="card card-color-borde h-100 shadow-sm rounded-4 overflow-hidden hover-scale">
                             <img src="<%#Eval("PrimeraImagenUrl") %>" class="card-img-top" style="height: 200px; object-fit: contain">
                             <div class="card-body d-flex flex-column align-items-center text-center">
                                 <h5 class="card-title"><%#Eval("Nombre") %></h5>

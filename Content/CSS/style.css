@@ -19,6 +19,18 @@
     margin-bottom: 0.5rem;
 }
 
+.card-color-borde {
+    border: 1px solid var(--violeta-principal) !important;
+}
+
+
+#li-marca {
+    border-top: 1px solid var(--violeta-principal) !important;
+    border-bottom: 1px solid var(--violeta-principal) !important;
+}
+
+
+
 .linea-violeta {
     border-color: var(--violeta-principal) !important;
     border-width: 2px !important;
