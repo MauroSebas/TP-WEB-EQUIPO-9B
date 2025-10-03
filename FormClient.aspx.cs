@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Dominio;
+using Negocio;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Dominio;
-using Negocio;
 
 namespace TPWebForms_equipo9B
 {
@@ -17,6 +18,9 @@ namespace TPWebForms_equipo9B
         }
         protected void ButtonSubmit_Click(object sender, EventArgs e)
         {
+            Page.Validate();
+            if(!Page.IsValid) return;
+
 
             ClienteNegocio negCliente = new ClienteNegocio();
             Cliente cliente = new Cliente();
@@ -29,9 +33,14 @@ namespace TPWebForms_equipo9B
             cliente.Ciudad = txtCiudad.Text;
             cliente.CP = int.Parse(txtCp.Text);
 
-            negCliente.agregar(cliente);
+            //negCliente.agregar(cliente);
 
             Response.Redirect("Default.aspx");
+        }
+
+        protected void ValidateCheckBox(object source, ServerValidateEventArgs args)
+        {
+            args.IsValid = chkTerminos.Checked;
         }
     }
 }
