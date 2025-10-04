@@ -93,6 +93,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FormClient.aspx.cs">
+      <DependentUpon>FormClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormClient.aspx.designer.cs">
+      <DependentUpon>FormClient.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DetalleArticulo.aspx.cs">
       <DependentUpon>DetalleArticulo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
