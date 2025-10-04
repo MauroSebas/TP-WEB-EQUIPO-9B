@@ -14,24 +14,31 @@ namespace TPWebForms_equipo9B
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Cliente cliente = Session["Cliente"] as Cliente;
-            if (cliente != null)
+            if (!IsPostBack)
             {
-                txtDni.Text = cliente.Documento;
-                txtNombre.Text = cliente.Nombre;
-                txtApellido.Text = cliente.Apellido;
-                txtEmail.Text = cliente.Email;
-                txtDireccion.Text = cliente.Direccion;
-                txtCiudad.Text = cliente.Ciudad;
-                txtCp.Text = cliente.CP.ToString();
+                //Resolver el problema de que no se cargan los datos del cliente en el formulario en la segunda entrada
+                Cliente cliente = Session["Cliente"] as Cliente;
+                if (cliente != null)
+                {
+                    txtDni.Text = cliente.Documento;
+                    txtNombre.Text = cliente.Nombre;
+                    txtApellido.Text = cliente.Apellido;
+                    txtEmail.Text = cliente.Email;
+                    txtDireccion.Text = cliente.Direccion;
+                    txtCiudad.Text = cliente.Ciudad;
+                    txtCp.Text = cliente.CP.ToString();
+                }
             }
+
         }
         protected void ButtonSubmit_Click(object sender, EventArgs e)
         {
+            Articulo articuloSeleccionado = Session["Articulo"] as Articulo;
+
             Page.Validate();
             if(!Page.IsValid) return;
 
-
+            EmailService emailService = new EmailService();
             ClienteNegocio negCliente = new ClienteNegocio();
             Cliente cliente = new Cliente();
 
@@ -43,9 +50,13 @@ namespace TPWebForms_equipo9B
             cliente.Ciudad = txtCiudad.Text;
             cliente.CP = int.Parse(txtCp.Text);
 
-            //negCliente.agregar(cliente);
+            negCliente.agregar(cliente);
 
+            //Resolver el problema de que no se cargan los datos del cliente en el formulario en la segunda entrada
             Session["Cliente"] = cliente;
+
+            emailService.armarCorreo(cliente.Email, articuloSeleccionado.nombre, articuloSeleccionado.Imagenes[0].imageUrl);
+            emailService.enviarEmail();
 
             Response.Redirect("Default.aspx");
         }

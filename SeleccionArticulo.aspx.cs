@@ -22,7 +22,6 @@ namespace TPWebForms_equipo9B
                 ListaArticulo = negocio.lista();
                 RepeaterCards.DataSource = ListaArticulo;
                 RepeaterCards.DataBind();
-
             }
         }
 
@@ -44,8 +43,6 @@ namespace TPWebForms_equipo9B
             Session["Articulo"] = articuloSeleccionado;
 
             Response.Redirect("FormClient.aspx");
-
-
         }
 
     }
