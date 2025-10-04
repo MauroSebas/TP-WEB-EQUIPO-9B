@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SeleccionArticulo.aspx.cs" Inherits="TPWebForms_equipo9B.SeleccionArticulo" %>
+﻿<%@ Page Title="Seleccion de Premio" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SeleccionArticulo.aspx.cs" Inherits="TPWebForms_equipo9B.SeleccionArticulo" %>
 
 <%@ Import Namespace="Dominio" %>
 
@@ -25,7 +25,7 @@
                                 <p class="card-text text-wrap mb-3"></p>
                                 <p class="card-text mt-auto fw-bold fs-5"></p>
                                 <asp:Button ID="btnSeleccionArticulo" runat="server" Text="Seleccionar" CssClass="btn input-mi-color mt-2"
-                                     CommandName="ArticuloId" CommandArgument='<%#Eval("Id") %>' Onclick="btnSeleccionArticulo_Click" />
+                                     CommandName="ArticuloId" CommandArgument='<%#Eval("Id")%>' Onclick="btnSeleccionArticulo_Click" />
                             </div>
                         </div>
                     </div>
