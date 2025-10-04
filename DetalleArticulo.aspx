@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DetalleArticulo.aspx.cs" Inherits="TPWebForms_equipo9B.DetalleArticulo" %>
+﻿<%@ Page Title="Detalle de Articulo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DetalleArticulo.aspx.cs" Inherits="TPWebForms_equipo9B.DetalleArticulo" %>
 
 <%@ Import Namespace="Dominio" %>
 
@@ -9,7 +9,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="d-flex justify-content-center mt-5">
-        <div class="card" style="width: 24rem;">
+        <div class="card card-color-borde" style="width: 24rem;">
             <div id="carousel_<%= ArticuloSeleccionado.id %>" class="carousel slide" data-bs-ride="false">
                 <div class="carousel-indicators">
                     <% for (int i = 0; i < ArticuloSeleccionado.Imagenes.Count; i++)
@@ -61,9 +61,9 @@
                 <p class="card-text"><%= ArticuloSeleccionado.descripcion %></p>
             </div>
 
-            <ul class="list-group list-group-flush">
+            <ul class="list-group text-center">
                 <li class="list-group-item">Precio: $<%= ArticuloSeleccionado.precio %></li>
-                <li class="list-group-item">Marca: <%= ArticuloSeleccionado.marca.descripcion %></li>
+                <li id="li-marca" class="list-group-item">Marca: <%= ArticuloSeleccionado.marca.descripcion %></li>
                 <li class="list-group-item">Categoría: <%= ArticuloSeleccionado.categoria.descripcion %></li>
             </ul>
 

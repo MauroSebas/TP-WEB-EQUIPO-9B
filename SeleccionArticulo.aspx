@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SeleccionArticulo.aspx.cs" Inherits="TPWebForms_equipo9B.SeleccionArticulo" %>
+﻿<%@ Page Title="Seleccion de Premio" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SeleccionArticulo.aspx.cs" Inherits="TPWebForms_equipo9B.SeleccionArticulo" %>
 
 <%@ Import Namespace="Dominio" %>
 
@@ -17,7 +17,7 @@
             <asp:Repeater ID="RepeaterCards" runat="server">
                 <ItemTemplate>
                     <div class="col">
-                        <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden hover-scale">
+                        <div class="card card-color-borde h-100 shadow-sm rounded-4 overflow-hidden hover-scale">
                             <img src="<%#Eval("PrimeraImagenUrl") %>" class="card-img-top" style="height: 200px; object-fit: contain">
                             <div class="card-body d-flex flex-column align-items-center text-center">
                                 <h5 class="card-title"><%#Eval("Nombre") %></h5>
@@ -25,7 +25,7 @@
                                 <p class="card-text text-wrap mb-3"></p>
                                 <p class="card-text mt-auto fw-bold fs-5"></p>
                                 <asp:Button ID="btnSeleccionArticulo" runat="server" Text="Seleccionar" CssClass="btn input-mi-color mt-2"
-                                     CommandName="ArticuloId" CommandArgument='<%#Eval("Id") %>' Onclick="btnSeleccionArticulo_Click" />
+                                     CommandName="ArticuloId" CommandArgument='<%#Eval("Id")%>' Onclick="btnSeleccionArticulo_Click" />
                             </div>
                         </div>
                     </div>
