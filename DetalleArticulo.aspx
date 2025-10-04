@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DetalleArticulo.aspx.cs" Inherits="TPWebForms_equipo9B.DetalleArticulo" %>
+﻿<%@ Page Title="Detalle de Articulo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DetalleArticulo.aspx.cs" Inherits="TPWebForms_equipo9B.DetalleArticulo" %>
 
 <%@ Import Namespace="Dominio" %>
 

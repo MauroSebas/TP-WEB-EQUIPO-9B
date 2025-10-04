@@ -29,10 +29,21 @@ namespace TPWebForms_equipo9B
         protected void btnSeleccionArticulo_Click(object sender, EventArgs e)
         {
 
-            string idArticuloSeleccionado = ((Button)sender).CommandArgument;
+            Articulo articuloSeleccionado = new Articulo();
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            ListaArticulo = negocio.lista();
 
-            Session.Add("articulo", idArticuloSeleccionado);
-            Response.Redirect("Formulario.aspx", false);
+            int idArticuloSeleccionado = int.Parse(((Button)sender).CommandArgument);
+
+            foreach (Articulo articulo in ListaArticulo)
+            {
+                if (articulo.id == idArticuloSeleccionado)
+                    articuloSeleccionado = articulo;
+            }
+
+            Session["Articulo"] = articuloSeleccionado;
+
+            Response.Redirect("FormClient.aspx");
 
 
         }
