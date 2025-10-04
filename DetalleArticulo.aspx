@@ -62,7 +62,7 @@
             </div>
 
             <ul class="list-group text-center">
-                <li class="list-group-item">Precio: $<%= ArticuloSeleccionado.precio %></li>
+                <li class="list-group-item">Precio: <%= ArticuloSeleccionado.PrecioFormateado %></li>
                 <li id="li-marca" class="list-group-item">Marca: <%= ArticuloSeleccionado.marca.descripcion %></li>
                 <li class="list-group-item">Categoría: <%= ArticuloSeleccionado.categoria.descripcion %></li>
             </ul>
