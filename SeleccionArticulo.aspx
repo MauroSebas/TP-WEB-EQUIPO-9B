@@ -2,7 +2,7 @@
 
 <%@ Import Namespace="Dominio" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">   
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -21,7 +21,7 @@
                             <img src="<%#Eval("PrimeraImagenUrl") %>" class="card-img-top" style="height: 200px; object-fit: contain">
                             <div class="card-body d-flex flex-column align-items-center text-center">
                                 <h5 class="card-title"><%#Eval("Nombre") %></h5>
-                                <a href="DetalleArticulo.aspx?id=<%#Eval("Id") %>">Ver Detalle</a>
+                               <a href='DetalleArticulo.aspx?id=<%#Eval("Id") %>' class="link-detalle">Ver Detalle</a>
                                 <p class="card-text text-wrap mb-3"></p>
                                 <p class="card-text mt-auto fw-bold fs-5"></p>
                                 <asp:Button ID="btnSeleccionArticulo" runat="server" Text="Seleccionar" CssClass="btn input-mi-color mt-2"

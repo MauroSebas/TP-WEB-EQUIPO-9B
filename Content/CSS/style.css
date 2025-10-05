@@ -101,3 +101,17 @@
         outline: none !important;
     }
 
+
+.link-detalle {
+    margin-top: 6px;
+    color: var(--violeta-principal) !important;
+    text-decoration: none !important;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+    .link-detalle:hover {
+        color: #6a1b9a !important;
+        text-decoration: underline !important;
+    }

@@ -62,13 +62,14 @@
             </div>
 
             <ul class="list-group text-center">
-                <li class="list-group-item">Precio: <%= ArticuloSeleccionado.PrecioFormateado %></li>
+               <li class="list-group-item">Precio: <%= ArticuloSeleccionado.PrecioFormateado %></li>
+
                 <li id="li-marca" class="list-group-item">Marca: <%= ArticuloSeleccionado.marca.descripcion %></li>
                 <li class="list-group-item">Categoría: <%= ArticuloSeleccionado.categoria.descripcion %></li>
             </ul>
 
             <div class="card-body text-center">
-                <asp:Button ID="btnVolver" runat="server" Text="Volver" CssClass="btn btn-primary mx-4" OnClick="btnVolver_Click" />
+                <asp:Button ID="btnVolver" runat="server" Text="Volver" CssClass="btn input-mi-color mt-2" OnClick="btnVolver_Click" />
             </div>
         </div>
     </div>
