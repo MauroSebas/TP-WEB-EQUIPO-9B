@@ -19,6 +19,18 @@
     margin-bottom: 0.5rem;
 }
 
+.card-color-borde {
+    border: 1px solid var(--violeta-principal) !important;
+}
+
+
+#li-marca {
+    border-top: 1px solid var(--violeta-principal) !important;
+    border-bottom: 1px solid var(--violeta-principal) !important;
+}
+
+
+
 .linea-violeta {
     border-color: var(--violeta-principal) !important;
     border-width: 2px !important;
@@ -46,6 +58,12 @@
         border-color: var(--violeta-hover) !important;
         box-shadow: none !important;
     }
+
+
+/*Filtro para iconos prev y next */
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    filter: invert(108%);
+}
 
 /*Hover para las card */
 .hover-scale:hover {
@@ -81,4 +99,19 @@
         border-color: var(--violeta-principal) !important;
         box-shadow: 0 0 8px rgba(93,14,192,0.4) !important;
         outline: none !important;
+    }
+
+
+.link-detalle {
+    margin-top: 6px;
+    color: var(--violeta-principal) !important;
+    text-decoration: none !important;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+    .link-detalle:hover {
+        color: #6a1b9a !important;
+        text-decoration: underline !important;
     }

@@ -12,7 +12,7 @@ namespace TPWebForms_equipo9B
     public partial class SeleccionArticulo : System.Web.UI.Page
     {
         public List<Articulo> ListaArticulo { get; set; }
-        public List<Imagen> ListaImagen { get; set; }
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,26 +20,29 @@ namespace TPWebForms_equipo9B
             {
                 ArticuloNegocio negocio = new ArticuloNegocio();
                 ListaArticulo = negocio.lista();
-                ImagenNegocio negocioImagen = new ImagenNegocio();
-
-
-                foreach (Articulo articulo in ListaArticulo)
-                {
-
-                    ListaImagen = negocioImagen.listarImagenes(articulo.id);
-
-                    if (ListaImagen != null)
-                    {
-
-                        articulo.Imagenes = ListaImagen;
-                    }
-                }
+                RepeaterCards.DataSource = ListaArticulo;
+                RepeaterCards.DataBind();
             }
         }
 
-        protected void SeleccionarArticulo(object sender, CommandEventArgs e)
+        protected void btnSeleccionArticulo_Click(object sender, EventArgs e)
         {
 
+            Articulo articuloSeleccionado = new Articulo();
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            ListaArticulo = negocio.lista();
+
+            int idArticuloSeleccionado = int.Parse(((Button)sender).CommandArgument);
+
+            foreach (Articulo articulo in ListaArticulo)
+            {
+                if (articulo.id == idArticuloSeleccionado)
+                    articuloSeleccionado = articulo;
+            }
+
+            Session["Articulo"] = articuloSeleccionado;
+
+            Response.Redirect("FormClient.aspx");
         }
 
     }
