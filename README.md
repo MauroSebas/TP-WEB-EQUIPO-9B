@@ -28,5 +28,5 @@ El sistema permite a los clientes ingresar un código de voucher recibido con ca
 ##  Integrantes
 - **Mauro Sebastián Arias**  
 - **Duarte Sebastián Exequiel**  
-- **Lautaro Vladimir Potocnjak**  
+- **Marco D'Antino**  
 
