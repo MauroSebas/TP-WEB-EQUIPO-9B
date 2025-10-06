@@ -1,20 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 
 namespace Negocio
 {
-    public class AccesoDato
+    public class AccesoDato : IDisposable
     {
         private SqlConnection conexion;
         private SqlCommand comando;
         private SqlDataReader lector;
-        public SqlDataReader Lector
-        { get { return lector; } }
+
+        public SqlDataReader Lector => lector;
 
         public AccesoDato()
         {
@@ -26,22 +21,19 @@ namespace Negocio
         {
             comando.CommandType = System.Data.CommandType.Text;
             comando.CommandText = consulta;
+            comando.Parameters.Clear();
+        }
+
+        public void setearParametro(string nombre, object valor)
+        {
+            comando.Parameters.AddWithValue(nombre, valor ?? DBNull.Value);
         }
 
         public void ejecutarLectura()
         {
             comando.Connection = conexion;
-            try
-            {
-                conexion.Open();
-                lector = comando.ExecuteReader();
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
+            conexion.Open();
+            lector = comando.ExecuteReader();
         }
 
         public void ejecutarAccion()
@@ -52,26 +44,11 @@ namespace Negocio
                 conexion.Open();
                 comando.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            finally
             {
-
-                throw ex;
+                conexion.Close();
             }
         }
-
-        public void setearParametro(string nombre, object valor)
-        {
-            comando.Parameters.AddWithValue(nombre, valor);
-        }
-
-        public void cerrarConexion()
-        {
-            if (lector != null)
-                lector.Close();
-            conexion.Close();
-        }
-
-
 
         public object ejecutarScalar()
         {
@@ -81,14 +58,25 @@ namespace Negocio
                 conexion.Open();
                 return comando.ExecuteScalar();
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
             finally
             {
                 conexion.Close();
             }
+        }
+
+        public void cerrarConexion()
+        {
+            if (lector != null && !lector.IsClosed)
+                lector.Close();
+            if (conexion.State != System.Data.ConnectionState.Closed)
+                conexion.Close();
+        }
+
+        public void Dispose()
+        {
+            cerrarConexion();
+            comando.Dispose();
+            conexion.Dispose();
         }
     }
 }

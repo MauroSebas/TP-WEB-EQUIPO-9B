@@ -63,14 +63,30 @@ namespace Negocio
         }
 
         // Método para canjear un voucher
-        public void CanjearVoucher(string codigo, Cliente cliente)
+        public void CanjearVoucher(string codigoVoucher, int idCliente, int idArticulo)
         {
+            AccesoDato datos = new AccesoDato();
             try
             {
-                acceso.setearConsulta("UPDATE Vouchers SET IdCliente = @idCliente, FechaCanje = GETDATE() WHERE CodigoVoucher = @codigo");
-                acceso.setearParametro("@idCliente", cliente.Id);
-                acceso.setearParametro("@codigo", codigo);
-                acceso.ejecutarAccion();
+                // Intento actualizar el voucher
+                datos.setearConsulta(@"
+            UPDATE Vouchers 
+            SET IdCliente = @IdCliente, IdArticulo = @IdArticulo, FechaCanje = GETDATE()
+            WHERE CodigoVoucher = @CodigoVoucher AND FechaCanje IS NULL
+        ");
+                datos.setearParametro("@IdCliente", idCliente);
+                datos.setearParametro("@IdArticulo", idArticulo);
+                datos.setearParametro("@CodigoVoucher", codigoVoucher);
+                datos.ejecutarAccion(); 
+
+                // Verifico si se aplicó
+                datos.setearConsulta("SELECT COUNT(1) FROM Vouchers WHERE CodigoVoucher = @CodigoVoucher AND FechaCanje IS NOT NULL");
+                datos.setearParametro("@CodigoVoucher", codigoVoucher);
+                object resultado = datos.ejecutarScalar();
+                int filas = Convert.ToInt32(resultado);
+
+                if (filas == 0)
+                    throw new Exception("El voucher ya fue usado o no existe.");
             }
             catch (Exception ex)
             {
@@ -78,9 +94,10 @@ namespace Negocio
             }
             finally
             {
-                acceso.cerrarConexion();
+                datos.cerrarConexion();
             }
         }
     }
 }
+
 
