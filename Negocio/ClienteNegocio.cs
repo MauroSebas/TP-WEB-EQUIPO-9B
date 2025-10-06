@@ -1,9 +1,5 @@
 ﻿using Dominio;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Negocio
 {
@@ -11,28 +7,83 @@ namespace Negocio
     {
         public void agregar(Cliente nuevo)
         {
-            AccesoDato datos = new AccesoDato();
-            try
+            using (AccesoDato datos = new AccesoDato())
             {
-                datos.setearConsulta("INSERT INTO Clientes(Documento, Nombre, Apellido, Email, Direccion, Ciudad, CP) " +
-                                     "VALUES(@Documento, @Nombre, @Apellido, @Email, @Direccion, @Ciudad, @CP);");
-                datos.setearParametro("@Documento", nuevo.Documento);
-                datos.setearParametro("@Nombre", nuevo.Nombre);
-                datos.setearParametro("@Apellido", nuevo.Apellido);
-                datos.setearParametro("@Email", nuevo.Email);
-                datos.setearParametro("@Direccion", nuevo.Direccion);
-                datos.setearParametro("@Ciudad", nuevo.Ciudad);
-                datos.setearParametro("@CP", nuevo.CP);
+                try
+                {
+                    datos.setearConsulta(@"
+                        INSERT INTO Clientes(Documento, Nombre, Apellido, Email, Direccion, Ciudad, CP) 
+                        OUTPUT INSERTED.Id 
+                        VALUES(@Documento, @Nombre, @Apellido, @Email, @Direccion, @Ciudad, @CP);
+                    ");
+                    datos.setearParametro("@Documento", nuevo.Documento);
+                    datos.setearParametro("@Nombre", nuevo.Nombre);
+                    datos.setearParametro("@Apellido", nuevo.Apellido);
+                    datos.setearParametro("@Email", nuevo.Email);
+                    datos.setearParametro("@Direccion", nuevo.Direccion);
+                    datos.setearParametro("@Ciudad", nuevo.Ciudad);
+                    datos.setearParametro("@CP", nuevo.CP);
 
-                datos.ejecutarAccion();
+                    datos.ejecutarLectura();
+
+                    try
+                    {
+                        if (datos.Lector.Read())
+                            nuevo.Id = (int)datos.Lector["Id"];
+                    }
+                    finally
+                    {
+                        if (datos.Lector != null && !datos.Lector.IsClosed)
+                            datos.Lector.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             }
-            catch (Exception ex)
+        }
+
+        public Cliente obtenerPorDni(string dni)
+        {
+            using (AccesoDato datos = new AccesoDato())
             {
-                throw ex;
-            }
-            finally
-            {
-                datos.cerrarConexion();
+                Cliente cliente = null;
+                try
+                {
+                    datos.setearConsulta("SELECT Id, Documento, Nombre, Apellido, Email, Direccion, Ciudad, CP FROM Clientes WHERE Documento = @Documento");
+                    datos.setearParametro("@Documento", dni);
+                    datos.ejecutarLectura();
+
+                    try
+                    {
+                        if (datos.Lector.Read())
+                        {
+                            cliente = new Cliente()
+                            {
+                                Id = (int)datos.Lector["Id"],
+                                Documento = (string)datos.Lector["Documento"],
+                                Nombre = (string)datos.Lector["Nombre"],
+                                Apellido = (string)datos.Lector["Apellido"],
+                                Email = (string)datos.Lector["Email"],
+                                Direccion = (string)datos.Lector["Direccion"],
+                                Ciudad = (string)datos.Lector["Ciudad"],
+                                CP = (int)datos.Lector["CP"]
+                            };
+                        }
+                    }
+                    finally
+                    {
+                        if (datos.Lector != null && !datos.Lector.IsClosed)
+                            datos.Lector.Close();
+                    }
+
+                    return cliente;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             }
         }
     }
